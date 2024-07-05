@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculatrice</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="content">
+      <div id="calc">
+        <div id="screen">
+          <p id="text"></p>
+        </div>
+        <div id="buttons">
+          <div id="left">
+            <button class="number-buttons" onclick="deleteLastInput()">
+              D
+            </button>
+            <button class="number-buttons" onclick="setVariables()">C</button>
+            <button class="number-buttons" onclick="writeNumber('7')">7</button>
+            <button class="number-buttons" onclick="writeNumber('8')">8</button>
+            <button class="number-buttons" onclick="writeNumber('9')">9</button>
+            <button class="number-buttons" onclick="writeNumber('4')">4</button>
+            <button class="number-buttons" onclick="writeNumber('5')">5</button>
+            <button class="number-buttons" onclick="writeNumber('6')">6</button>
+            <button class="number-buttons" onclick="writeNumber('1')">1</button>
+            <button class="number-buttons" onclick="writeNumber('2')">2</button>
+            <button class="number-buttons" onclick="writeNumber('3')">3</button>
+            <button class="number-buttons" onclick="writeNumber('0')">0</button>
+            <button class="number-buttons" onclick="writeNumber('.')">.</button>
+          </div>
+          <div id="right">
+            <button class="operation-buttons" onclick="writeOperator('÷')">
+              ÷
+            </button>
+            <button class="operation-buttons" onclick="writeOperator('×')">
+              ×
+            </button>
+            <button class="operation-buttons" onclick="writeOperator('-')">
+              -
+            </button>
+            <button class="operation-buttons" onclick="writeOperator('+')">
+              +
+            </button>
+            <button class="operation-buttons" onclick="result()">=</button>
+          </div>
+        </div>
+      </div>
+      <div id="history">
+        <div class="calcul">
+          <p class="operation">9.999999872000004e+287*9.999999872000004e+287</p>
+          <p class="result">9.999999872000004e+287</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <hr>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+        <div class="calcul">
+          <p class="operation">7*8</p>
+          <p class="result">8528952587</p>
+        </div>
+      </div>
+    </div>
+    <button id="history-button" onclick="showHistory()">History</button>
+  </body>
+</html>
