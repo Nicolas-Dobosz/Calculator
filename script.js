@@ -167,9 +167,10 @@ function result() {
   } else {
     calculate(ope, num2);
   }
-  if (!ope && !lastOpe ) {
-  } else {
+  if (ope || lastOpe) {
     generateHistory();
+  } else {
+    alert("What do you mean " + num + " is " + num);
   }
   if (num.length > 12) {
     screen.style.fontSize = "4vh";
