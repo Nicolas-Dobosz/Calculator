@@ -68,7 +68,7 @@ function writeNumber(number) {
     } else if (num == "0" && number != ".") {
       num = number;
       screen.innerText = num;
-    } else if (x) {
+    } else if (newCalcul) {
       num = number;
       newCalcul = false;
       screen.innerText = num;
