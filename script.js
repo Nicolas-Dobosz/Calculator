@@ -5,32 +5,36 @@ let lastNum;
 let lastNum2;
 let lastOpe;
 let screen;
-let history
+let history;
 
+// Initialize the calculator on DOM content loaded
 document.addEventListener("DOMContentLoaded", function () {
   screen = document.getElementById("text");
   history = document.getElementById("history");
+
   setVariables();
   lastNum = "";
   lastOpe = "";
 
+  // Add event listener for keyboard input
   document.addEventListener("keydown", (event) => {
     if (parseInt(event.key) >= 0) {
       writeNumber(event.key);
-    } else if (["-", "+"].includes(event.key)){
+    } else if (["-", "+"].includes(event.key)) {
       writeOperator(event.key);
-    } else if (event.key == "*"){
+    } else if (event.key == "*") {
       writeOperator("×");
-    } else if (event.key == "/"){
+    } else if (event.key == "/") {
       writeOperator("÷");
     } else if (event.key == "Enter") {
       result();
-    } else if (event.key == "Backspace"){
+    } else if (event.key == "Backspace") {
       deleteLastInput();
     }
   });
 });
 
+// Handle number input and update screen
 function writeNumber(number) {
   if (!ope) {
     if (num.length >= 11) {
@@ -62,6 +66,7 @@ function writeNumber(number) {
   }
 }
 
+// Handle operator input and update screen
 function writeOperator(operator) {
   if (operator == "-" && (ope == "×" || ope == "÷")) {
     num2 = "-0";
@@ -73,9 +78,9 @@ function writeOperator(operator) {
     ope = operator;
     screen.innerText = num + ope;
   }
-    
 }
 
+// Set initial values for the calculator
 function setVariables() {
   num = "0";
   num2 = "0";
@@ -84,6 +89,7 @@ function setVariables() {
   screen.innerText = num;
 }
 
+// Clear calculator values
 function clearCalc() {
   lastNum = "0";
   lastNum2 = "0";
@@ -115,10 +121,12 @@ function deleteLastInput() {
   }
 }
 
+// Round the number to 4 decimal places
 function round(number) {
   return Math.round(number * 10_000) / 10_000;
 }
 
+// Calculation based on the operator
 function calculate(ope, num2) {
   let tempResult;
   switch (ope) {
@@ -161,6 +169,7 @@ function calculate(ope, num2) {
   }
 }
 
+// Display result of the calculation
 function result() {
   if (!ope) {
     calculate(lastOpe, lastNum2);
@@ -177,14 +186,16 @@ function result() {
   }
 }
 
+// Toggle the visibility of history panel
 function showHistory() {
-  history.style.visibility = history.style.visibility === "visible" ? "hidden" : "visible";
+  history.style.visibility =
+    history.style.visibility === "visible" ? "hidden" : "visible";
 }
 
+// Generate and display calculation history
 function generateHistory() {
-
   const hr = document.createElement("hr");
-  
+
   const calcul = document.createElement("div");
   calcul.className = "calcul";
 
@@ -200,7 +211,6 @@ function generateHistory() {
   calcul.appendChild(operation);
   calcul.appendChild(result);
   history.appendChild(calcul);
-  
 
   history.scrollBy(0, history.scrollHeight);
 }
