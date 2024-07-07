@@ -52,6 +52,9 @@ function writeNumber(number) {
     } else if (num2 == "0" && number != ".") {
       num2 = number;
       screen.innerText = num2;
+    } else if (num2 == "-0" && number != ".") {
+      num2 = "-" + number;
+      screen.innerText = num2;
     } else {
       num2 += number;
       screen.innerText = num2;
@@ -60,8 +63,9 @@ function writeNumber(number) {
 }
 
 function writeOperator(operator) {
-  if (num.length > 10) {
-    alert("Limit number reached");
+  if (operator == "-" && (ope == "×" || ope == "÷")) {
+    num2 = "-0";
+    screen.innerText = num2;
   } else {
     if (ope && num2 != "0") {
       result();
@@ -69,6 +73,7 @@ function writeOperator(operator) {
     ope = operator;
     screen.innerText = num + ope;
   }
+    
 }
 
 function setVariables() {
@@ -77,6 +82,13 @@ function setVariables() {
   ope = "";
   screen.style.fontSize = "7vh";
   screen.innerText = num;
+}
+
+function clearCalc() {
+  lastNum = "0";
+  lastNum2 = "0";
+  lastOpe = "";
+  setVariables();
 }
 
 function deleteLastInput() {
