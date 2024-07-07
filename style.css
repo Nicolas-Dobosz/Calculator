@@ -101,26 +101,28 @@ Hystory Style
 
 #history {
   visibility: hidden;
-  background-color: grey;
+  background-color: rgb(255, 230, 255);
+  color: black;
   border: solid black;
   height: 80vh;
   width: 50vh;
   margin: auto;
   margin-top: 10vh;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 #history p {
   text-align: right;
-  margin: 0;
+  margin: 0; 
 }
 
 .calcul {
-  margin-top: 2vh;
+  margin-top: 1vh;
   margin-right: 1vh;
+  margin-bottom: 1vh;
 }
 
 .result {
@@ -133,6 +135,7 @@ Hystory Style
 
 #history hr {
   width: 100%;
+  margin-left: 10px;
 }
 
 /*--------------------------------------------------------------------

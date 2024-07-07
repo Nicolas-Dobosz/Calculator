@@ -2,6 +2,7 @@ let num;
 let num2;
 let ope;
 let lastNum;
+let lastNum2;
 let lastOpe;
 let screen;
 let history
@@ -110,7 +111,8 @@ function calculate(ope, num2) {
   let tempResult;
   switch (ope) {
     case "+":
-      lastNum = num2;
+      lastNum = num;
+      lastNum2 = num2;
       lastOpe = ope;
       tempResult = parseFloat(num) + parseFloat(num2);
       setVariables();
@@ -118,7 +120,8 @@ function calculate(ope, num2) {
       screen.innerText = num;
       break;
     case "-":
-      lastNum = num2;
+      lastNum = num;
+      lastNum2 = num2;
       lastOpe = ope;
       tempResult = parseFloat(num) - parseFloat(num2);
       setVariables();
@@ -126,7 +129,8 @@ function calculate(ope, num2) {
       screen.innerText = num;
       break;
     case "×":
-      lastNum = num2;
+      lastNum = num;
+      lastNum2 = num2;
       lastOpe = ope;
       tempResult = parseFloat(num) * parseFloat(num2);
       setVariables();
@@ -134,7 +138,8 @@ function calculate(ope, num2) {
       screen.innerText = num;
       break;
     case "÷":
-      lastNum = num2;
+      lastNum = num;
+      lastNum2 = num2;
       lastOpe = ope;
       tempResult = parseFloat(num) / parseFloat(num2);
       setVariables();
@@ -146,9 +151,13 @@ function calculate(ope, num2) {
 
 function result() {
   if (!ope) {
-    calculate(lastOpe, lastNum);
+    calculate(lastOpe, lastNum2);
   } else {
     calculate(ope, num2);
+  }
+  if (!ope && !lastOpe ) {
+  } else {
+    generateHistory();
   }
   if (num.length > 12) {
     screen.style.fontSize = "4vh";
@@ -157,4 +166,28 @@ function result() {
 
 function showHistory() {
   history.style.visibility = history.style.visibility === "visible" ? "hidden" : "visible";
+}
+
+function generateHistory() {
+
+  const hr = document.createElement("hr");
+  
+  const calcul = document.createElement("div");
+  calcul.className = "calcul";
+
+  const operation = document.createElement("p");
+  operation.className = "operation";
+  operation.innerText = lastNum + lastOpe + lastNum2;
+
+  const result = document.createElement("p");
+  result.className = "result";
+  result.innerText = num;
+
+  history.appendChild(hr);
+  calcul.appendChild(operation);
+  calcul.appendChild(result);
+  history.appendChild(calcul);
+  
+
+  history.scrollBy(0, history.scrollHeight);
 }
