@@ -4,6 +4,7 @@ let ope;
 let lastNum;
 let lastNum2;
 let lastOpe;
+let newCalcul;
 let screen;
 let history;
 let textSize;
@@ -11,9 +12,11 @@ let textSize2;
 
 // Initialize the calculator on DOM content loaded
 document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("resize", adjustTextSize);
   screen = document.getElementById("text");
   history = document.getElementById("history");
-
+  newCalcul = false;
+  
   setVariables();
   adjustTextSize();
   lastNum = "";
@@ -37,6 +40,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+
+// Ajust Text Size if needed
 function adjustTextSize() {
   if (window.matchMedia("(max-width: 1350px)").matches) {
     textSize = "5vh";
@@ -53,8 +58,6 @@ function adjustTextSize() {
   }
 }
 
-window.addEventListener("resize", adjustTextSize);
-
 // Handle number input and update screen
 function writeNumber(number) {
   if (!ope) {
@@ -64,6 +67,10 @@ function writeNumber(number) {
       alert("There is already a point");
     } else if (num == "0" && number != ".") {
       num = number;
+      screen.innerText = num;
+    } else if (x) {
+      num = number;
+      newCalcul = false;
       screen.innerText = num;
     } else {
       num += number;
@@ -192,6 +199,7 @@ function calculate(ope, num2) {
 
 // Display result of the calculation
 function result() {
+  newCalcul = true;
   if (!ope) {
     calculate(lastOpe, lastNum2);
   } else {
