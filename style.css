@@ -158,6 +158,7 @@ Mobile Style
     height: 144vw;
     width: 90vw;
     margin-left: 5vw;
+    left: 0;
   }
 
   ::-webkit-scrollbar {
