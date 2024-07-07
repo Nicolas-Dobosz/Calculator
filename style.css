@@ -85,10 +85,6 @@ button {
   width: calc(200% / 3);
 }
 
-#text {
-  font-size: 7vh;
-}
-
 /*--------------------------------------------------------------------
 Hystory Style
 --------------------------------------------------------------------*/
@@ -145,7 +141,7 @@ Hystory Style
 Mobile Style
 --------------------------------------------------------------------*/
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1200px) {
 
   #content {
     width: 90vw;
@@ -155,6 +151,7 @@ Mobile Style
     height: 144vw;
     width: 90vw;
     margin-left: 5vw;
+
   }
   #history {
     position: absolute;
@@ -162,6 +159,11 @@ Mobile Style
     width: 90vw;
     margin-left: 5vw;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
 }
 
 /*--------------------------------------------------------------------

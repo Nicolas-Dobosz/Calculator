@@ -6,6 +6,8 @@ let lastNum2;
 let lastOpe;
 let screen;
 let history;
+let textSize;
+let textSize2;
 
 // Initialize the calculator on DOM content loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   history = document.getElementById("history");
 
   setVariables();
+  adjustTextSize();
   lastNum = "";
   lastOpe = "";
 
@@ -33,6 +36,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function adjustTextSize() {
+  if (window.matchMedia("(max-width: 1350px)").matches) {
+    textSize = "5vh";
+    textSize2 = "3vh";
+  } else {
+    textSize = "7vh";
+    textSize2 = "4vh";
+  }
+
+  if (num.length > 12) {
+    screen.style.fontSize = textSize2;
+  } else {
+    screen.style.fontSize = textSize;
+  }
+}
+
+window.addEventListener("resize", adjustTextSize);
 
 // Handle number input and update screen
 function writeNumber(number) {
@@ -85,7 +106,7 @@ function setVariables() {
   num = "0";
   num2 = "0";
   ope = "";
-  screen.style.fontSize = "7vh";
+  screen.style.fontSize = textSize;
   screen.innerText = num;
 }
 
@@ -111,7 +132,7 @@ function deleteLastInput() {
   } else {
     num = num.substring(0, num.length - 1);
     if (num.length < 12) {
-      screen.style.fontSize = "7vh";
+      screen.style.fontSize = textSize;
     }
     screen.innerText = num;
     if (!num) {
@@ -182,7 +203,7 @@ function result() {
     alert("What do you mean " + num + " is " + num);
   }
   if (num.length > 12) {
-    screen.style.fontSize = "4vh";
+    screen.style.fontSize = textSize2;
   }
 }
 
