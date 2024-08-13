@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("keydown", (event) => {
     if (parseInt(event.key) >= 0) {
       writeNumber(event.key);
+    } else if (event.key == ".") {
+      writeNumber(".");
     } else if (["-", "+"].includes(event.key)) {
       writeOperator(event.key);
     } else if (event.key == "*") {
